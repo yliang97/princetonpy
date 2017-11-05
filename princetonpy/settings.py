@@ -115,6 +115,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Static files directory
+STATICFILES_DIRS = (
+    '/Users/Yijia/Dropbox/Princeton/IW_fall_17/princetonpy/static/',
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

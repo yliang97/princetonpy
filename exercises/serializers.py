@@ -5,7 +5,7 @@ from exercises.models import Exercise
 class ExerciseSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Exercise
-		fields = ('question_name', 'question_description', 'test_inputs', 'test_outputs', 'java_equivalent', 
+		fields = ('id', 'question_name', 'question_description', 'test_inputs', 'test_outputs', 'java_equivalent', 
 			'answer_code', 'hints')
 
 	def create(self, validated_data):
