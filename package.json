@@ -1,0 +1,33 @@
+{
+  "name": "princetonpy",
+  "version": "1.0.0",
+  "description": "Tool to help Princeton students learn python",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yliang97/princetonpy.git"
+  },
+  "author": "Yijia Liang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yliang97/princetonpy/issues"
+  },
+  "homepage": "https://github.com/yliang97/princetonpy#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "jquery": "^3.2.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack": "^2.7.0",
+    "webpack-bundle-tracker": "^0.2.0"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.2"
+  }
+}

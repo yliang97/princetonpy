@@ -1,4 +1,4 @@
-
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,12 +28,11 @@
           <ul class="nav nav-pills pull-right">
             <li role="presentation"><a href="../">Home</a></li>
             <li role="presentation" class="active"><a href="../information">Information</a></li>
-            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="../about">About</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">PrincetonPy</h3>
       </div>
-
       <div class="jumbotron">
         <h1>PrincetonPy</h1>
         <p class="lead">PrincetonPy is designed for Princeton students who have completed the COS126 curriculum and want to learn Python. PrincetonPy leverages the COS126 curriculum, material that you're already familiar with, to teach you Python. Starting with simple exercises like Hello World to harder recursive problems, PrincetonPy offers an exhaustive survey of Python concepts.</p>
@@ -64,9 +63,10 @@
         </div>
       </div>
 
-
+    <div id="container"> 
+    </div>
     </div> <!-- /container -->
-
+    {% render_bundle 'main' %}
 
  </body>
 </html>
