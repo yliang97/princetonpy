@@ -11330,14 +11330,22 @@ var ExercisesList = createReactClass({
 	render: function () {
 		if (this.state.data) {
 			console.log('DATA!');
-			var exerciseNodes = this.state.data.map(function (Exercise) {
-				return React.createElement(
+			var exerciseNodes = this.state.data.map(function (Exercises) {
+				exerciseList = React.createElement(
 					'li',
-					null,
-					' ',
-					Exercise.question_name,
+					{ key: Exercises.id },
+					React.createElement(
+						'a',
+						{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+						Exercises.question_name,
+						' '
+					),
 					' '
 				);
+				var id = Exercises.id;
+				console.log(id);
+				// $('#specific_exercise').attr('href', './exercises/' + id);
+				return exerciseList;
 			});
 		}
 		return React.createElement(
@@ -11358,7 +11366,7 @@ var ExercisesList = createReactClass({
 
 });
 
-ReactDOM.render(React.createElement(ExercisesList, { url: '/exercises/', pollInterval: 1000 }), document.getElementById('container'));
+ReactDOM.render(React.createElement(ExercisesList, { url: '/exercises_deprecated/' }), document.getElementById('container'));
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ }),

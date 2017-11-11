@@ -8,7 +8,7 @@ module.exports = {
 	entry: './assets/js/index',
 	output: {
 		path: path.resolve('./assets/bundles/'),
-		filename: '[name]-[hash].js',
+		filename: 'bundle.js',
 	},
 
 	plugins: [

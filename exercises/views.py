@@ -19,7 +19,7 @@ class Info(generic.ListView):
 	def get_queryset(self):
 		return
 
-class About(generics.ListCreateAPIView):
+class ExercisesIndex(generics.ListCreateAPIView):
 	queryset = Exercise.objects.all()
 	serializer_class = ExerciseSerializer
 

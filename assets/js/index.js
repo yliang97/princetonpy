@@ -22,15 +22,17 @@ var ExercisesList = createReactClass ({
 
 	componentDidMount: function() {
 		this.loadExercisesFromServer();
-		setInterval(this.loadBooksFromServer, this.props.pollInterval)
+		setInterval(this.loadExercisesFromServer, this.props.pollInterval)
 	},
 
 	render: function() {
 		if (this.state.data) {
 			console.log('DATA!')
-			var exerciseNodes = this.state.data.map(function(Exercise)
+			var exerciseNodes = this.state.data.map(function(Exercises)
 			{
-				return <li> {Exercise.question_name} </li>
+				exerciseList = <li key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}>  
+					{Exercises.question_name} </a> </li>;
+				return exerciseList;
 			})
 
 			
@@ -49,4 +51,4 @@ var ExercisesList = createReactClass ({
 
 })
 
-ReactDOM.render(<ExercisesList url = '/exercises/'  pollInterval = {1000} />, document.getElementById('container'))
+ReactDOM.render(<ExercisesList url = '/exercises_database/' />, document.getElementById('container'))
