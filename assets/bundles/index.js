@@ -11331,32 +11331,101 @@ var ExercisesList = createReactClass({
 	render: function () {
 		if (this.state.data) {
 			console.log('DATA!');
-			var exerciseNodes = this.state.data.map(function (Exercises) {
-				exerciseList = React.createElement(
-					'p',
-					null,
-					React.createElement(
-						'a',
-						{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
-						Exercises.question_name,
-						' '
-					)
-				);
-				return exerciseList;
+			var beginnerExercises = this.state.data.map(function (Exercises) {
+				if (Exercises.id < 10) {
+					exerciseList = React.createElement(
+						'p',
+						{ key: Exercises.id },
+						React.createElement(
+							'a',
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+							'Exercise ',
+							Exercises.id,
+							': ',
+							Exercises.question_name,
+							' '
+						),
+						' - ',
+						Exercises.question_description
+					);
+					return exerciseList;
+				}
+			});
+
+			var intermediateExercises = this.state.data.map(function (Exercises) {
+				if (Exercises.id >= 10 && Exercises.id < 20) {
+					exerciseList = React.createElement(
+						'p',
+						{ key: Exercises.id },
+						React.createElement(
+							'a',
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+							'Exercise ',
+							Exercises.id,
+							': ',
+							Exercises.question_name,
+							' '
+						),
+						' - ',
+						Exercises.question_description
+					);
+					return exerciseList;
+				}
+			});
+
+			var advancedExercises = this.state.data.map(function (Exercises) {
+				if (Exercises.id >= 20) {
+					exerciseList = React.createElement(
+						'p',
+						{ key: Exercises.id },
+						React.createElement(
+							'a',
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+							'Exercise ',
+							Exercises.id,
+							': ',
+							Exercises.question_name
+						),
+						' - ',
+						Exercises.question_description
+					);
+					return exerciseList;
+				}
 			});
 		}
+
 		return React.createElement(
 			'div',
 			null,
 			React.createElement(
-				'h1',
+				'h2',
 				null,
-				'Hello, React!',
-				React.createElement(
-					'ul',
-					null,
-					exerciseNodes
-				)
+				' Beginner Exercises '
+			),
+			React.createElement(
+				'h4',
+				null,
+				beginnerExercises
+			),
+			React.createElement(
+				'h2',
+				null,
+				' Intermediate Exercises '
+			),
+			React.createElement(
+				'h4',
+				null,
+				intermediateExercises
+			),
+			React.createElement(
+				'h2',
+				null,
+				' Advanced Exercises '
+			),
+			React.createElement(
+				'h4',
+				null,
+				advancedExercises
 			)
 		);
 	}

@@ -192,7 +192,7 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-@media (max-width: 1285px) {
+@media (max-width: 0px) {
     #sidebar {
         margin-left: -250px;
         transform: rotateY(90deg);
