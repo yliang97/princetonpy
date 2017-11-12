@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{{exercise.question_name}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Sidebar styles -->
+    <link rel="stylesheet" href="../../static/bootstrap/css/sidebar.css">
+
+  </head>
+
+  <body>
+
+ <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3><a href="../../"> PrincetonPy </a></h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p><a href="../../exercises/"> Exercise Home</a></p>
+                    <li>
+                        <a href="#Stage1" data-toggle="collapse" aria-expanded="false">Stage 1</a>
+                        <ul class="collapse list-unstyled" id="Stage1">
+                            <li><a href="#">Home 1</a></li>
+                            <li><a href="#">Home 2</a></li>
+                            <li><a href="#">Home 3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Stage2" data-toggle="collapse" aria-expanded="false">Stage 2</a>
+                        <ul class="collapse list-unstyled" id="Stage2">
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Stage3" data-toggle="collapse" aria-expanded="false">Stage 3</a>
+                        <ul class="collapse list-unstyled" id="Stage3">
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Stage4" data-toggle="collapse" aria-expanded="false">Stage 4</a>
+                        <ul class="collapse list-unstyled" id="Stage4">
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="list-unstyled CTAs">
+                  
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+              <div class="container">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                    </button>
+
+                <h1>Exercise {{exercise.id}}: {{exercise.question_name}}</h1>
+                <div class="line"></div>
+
+                <h3> Task </h3>
+                <p>{{exercise.question_description}}</p>
+                <p>Sample Inputs: {{exercise.test_inputs}}</p>
+
+                <div class="line"></div>
+
+                <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/languages/python3"></iframe>
+
+
+                <div class="line"></div>
+
+                <h3>Sample Outputs</h3>
+                <p>{{exercise.test_outputs}}</p>
+
+                <div class="line"></div>
+
+                <h3>Hints</h3>
+                <p>Hello</p>
+              </div>
+            </div>
+        </div>
+
+      <hr>
+      <footer>
+        <p>&copy; PrincetonPy</p>
+      </footer>
+    </div><!--/.container-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../static/bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Specific template JS -->
+    <script src="../../static/bootstrap/js/offcanvas.js"></script>
+    <script src="../../static/bootstrap/js/sidebar.js"></script>
+  </body>
+</html>

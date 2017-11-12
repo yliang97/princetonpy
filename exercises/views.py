@@ -19,9 +19,9 @@ class Info(generic.ListView):
 	def get_queryset(self):
 		return
 
-class ExercisesIndex(generics.ListCreateAPIView):
-	queryset = Exercise.objects.all()
-	serializer_class = ExerciseSerializer
+class QuestionView(generic.DetailView):
+	model = Exercise
+	template_name = 'specificQuestion.html'
 
 class ExerciseList(generics.ListCreateAPIView):
 	queryset = Exercise.objects.all()

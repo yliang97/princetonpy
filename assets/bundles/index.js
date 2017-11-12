@@ -11303,6 +11303,7 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */(function($) {var React = __webpack_require__(6);
 var ReactDOM = __webpack_require__(17);
 var createReactClass = __webpack_require__(15);
+var loaded = false;
 
 var ExercisesList = createReactClass({
 	displayName: 'ExercisesList',
@@ -11332,19 +11333,15 @@ var ExercisesList = createReactClass({
 			console.log('DATA!');
 			var exerciseNodes = this.state.data.map(function (Exercises) {
 				exerciseList = React.createElement(
-					'li',
-					{ key: Exercises.id },
+					'p',
+					null,
 					React.createElement(
 						'a',
 						{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
 						Exercises.question_name,
 						' '
-					),
-					' '
+					)
 				);
-				var id = Exercises.id;
-				console.log(id);
-				// $('#specific_exercise').attr('href', './exercises/' + id);
 				return exerciseList;
 			});
 		}
@@ -11366,7 +11363,7 @@ var ExercisesList = createReactClass({
 
 });
 
-ReactDOM.render(React.createElement(ExercisesList, { url: '/exercises_deprecated/' }), document.getElementById('container'));
+ReactDOM.render(React.createElement(ExercisesList, { url: '/exercises_database/', pollInterval: 1000 }), document.getElementById('container'));
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ }),

@@ -1,7 +1,7 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
 var createReactClass = require('create-react-class')
-
+var loaded = false;
 
 
 var ExercisesList = createReactClass ({
@@ -22,7 +22,7 @@ var ExercisesList = createReactClass ({
 
 	componentDidMount: function() {
 		this.loadExercisesFromServer();
-		setInterval(this.loadExercisesFromServer, this.props.pollInterval)
+		setInterval(this.loadBooksFromServer, this.props.pollInterval)
 	},
 
 	render: function() {
@@ -30,20 +30,16 @@ var ExercisesList = createReactClass ({
 			console.log('DATA!')
 			var exerciseNodes = this.state.data.map(function(Exercises)
 			{
-				exerciseList = <li key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}>  
-					{Exercises.question_name} </a> </li>;
+				exerciseList = <p><a id="specific_exercise" href= {'../exercises/' + Exercises.id}>  
+					{Exercises.question_name} </a></p>;
 				return exerciseList;
-			})
-
-			
+			})			
 		}
 		return (
 			<div>
 				<h1>
 	            Hello, React!
-	            <ul>
 	            	{exerciseNodes}
-	            </ul>
 	            </h1>
             </div>
 		)
@@ -51,4 +47,4 @@ var ExercisesList = createReactClass ({
 
 })
 
-ReactDOM.render(<ExercisesList url = '/exercises_database/' />, document.getElementById('container'))
+ReactDOM.render(<ExercisesList url = '/exercises_database/' pollInterval={1000}/>, document.getElementById('container'))
