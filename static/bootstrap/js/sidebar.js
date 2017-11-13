@@ -4,3 +4,7 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 });
+
+function splitString(s) {
+	return s.split(",");
+}
