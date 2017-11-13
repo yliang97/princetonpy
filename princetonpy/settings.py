@@ -118,7 +118,7 @@ USE_TZ = True
 
 # Static files directory
 STATICFILES_DIRS = (
-    '/Users/Yijia/Documents/princetonpy/princetonpy/static/',
+    '/Users/Yijia/Documents/princetonpy/static/',
     os.path.join(BASE_DIR, 'assets'),
 )
 
