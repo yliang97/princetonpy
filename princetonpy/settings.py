@@ -121,9 +121,8 @@ STATICFILES_DIRS = (
     '/Users/Yijia/Documents/princetonpy/princetonpy/static/',
     os.path.join(BASE_DIR, 'assets'),
 )
-STATIC_ROOT = (
-    '/Users/Yijia/Documents/princetonpy/princetonpy/static/',
-    )
+
+STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
 
 WEBPACK_LOADER = {
     'DEFAULT': {
