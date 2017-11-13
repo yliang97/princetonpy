@@ -25,7 +25,7 @@ SECRET_KEY = '^21ezx!9ngzh0dq-t-pyvsgur$ob0odt4x$f7&xtoinyy&!bu5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['princetonpy.herokuapp.com']
 
 
 # Application definition
