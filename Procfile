@@ -1,1 +1,1 @@
-web: waitress-serve --port=$port {princetonpy}.wsgi:application
+web: gunicorn princetonpy.wsgi
