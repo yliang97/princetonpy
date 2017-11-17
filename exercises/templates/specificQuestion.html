@@ -113,17 +113,11 @@
                 <div class="line"></div>
 
                 <h3>Hints</h3>
-                <script type = "text/javascript"> 
-                    function splitString(s) {
-                        hints = s.split(",");
-                        for (int i = 0; i < hints.length; i++) {
-                            
-                        }
-                    }
-                </script>
 
+               <!--  {{ % for i in exercise.hints.all() %}} -->
                 <button href="#Hint1" class="btn btn-default" data-toggle="collapse">Hint 1</button>
-                    <div id="Hint1" class="collapse" > splitString({{exercise.hint}}) </div>
+                    <div id="Hint1" class="collapse" > {{i.hint}} </div>
+                {{ % endfor %}}
             </div>
 
     <!-- Bootstrap core JavaScript
