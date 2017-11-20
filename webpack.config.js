@@ -4,7 +4,7 @@ var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
 
 module.exports = {
-	context: '/Users/Yijia/Dropbox/Princeton/IW_fall_17/princetonpy',
+	context: '/Users/Yijia/Documents/princetonpy',
 	entry: {
 		index: './assets/js/index',
 	},
