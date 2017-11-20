@@ -98,7 +98,7 @@
 
                 <h3> Task </h3>
                 <p>{{exercise.question_description}}</p>
-                <p>Sample Inputs: {{exercise.test_inputs}}</p>
+                <p>Sample Inputs: <kbd> {{exercise.test_inputs}}</kbd></p>
 
                 <div class="line"></div>
 
@@ -108,18 +108,34 @@
                 <div class="line"></div>
 
                 <h3>Sample Outputs</h3>
-                <p>{{exercise.test_outputs}}</p>
+                <samp>{{exercise.test_outputs}}</samp>
 
                 <div class="line"></div>
 
                 <h3>Hints</h3>
 
-               <!--  {{ % for i in exercise.hints.all() %}} -->
-                <button href="#Hint1" class="btn btn-default" data-toggle="collapse">Hint 1</button>
-                    <div id="Hint1" class="collapse" > {{i.hint}} </div>
-                {{ % endfor %}}
-            </div>
+                {% for i in exercise.hints.all %}
+                    <button href="#Hint{{i.number}}" id = "hint_button{{i.number}}" class="mt-2 btn btn-default" data-toggle="collapse" disabled="disabled" onclick="toggleButton({{i.number}}, {{exercise.hints.count}})">Hint {{i.number}}</button>
+                        <div class = "mt-2 panel panel-default">
+                        <div id="Hint{{i.number}}" class="mt-2 collapse"> <p> {{i.hint}} </p></div>  
+                        </div>
+                <div class="line"></div>
+                {% endfor %}
 
+                <h3>Java Equivalent </h3>
+                <button href="#java_equivalent" id = "java_button" class="mt-2 btn btn-default" data-toggle="collapse" disabled="disabled" onclick="toggleAnswer()">Java Answer Code</button>
+                        <div class = "mt-2 panel panel-default">
+                          <div id="java_equivalent" class="mt-2 collapse"> <code> {{exercise.java_equivalent}}</code></div>  
+                        </div>
+                <div class="line"></div>
+
+                <h3>Answer Code</h3>
+                <button href="#answer_code" id = "answer_button" class="mt-2 btn btn-default" data-toggle="collapse" disabled="disabled">Python Answer Code</button>
+                        <div class = "mt-2 panel panel-default">
+                          <div id="answer_code" class="mt-2 collapse"> <code> {{exercise.answer_code}}</code></div>  
+                        </div>
+
+            </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -128,5 +144,9 @@
     <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
     <!-- Specific template JS -->
     <script src="../../static/bootstrap/js/sidebar.js"></script>
+    <!-- REACT JS Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
   </body>
 </html>

@@ -76,4 +76,9 @@ var ExercisesList = createReactClass ({
 
 })
 
+
+
+
+
+
 ReactDOM.render(<ExercisesList url = '/exercises_database/' pollInterval={1000}/>, document.getElementById('container'))
