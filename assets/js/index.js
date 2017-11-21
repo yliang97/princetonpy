@@ -31,7 +31,7 @@ var ExercisesList = createReactClass ({
 			var elements = this.state.data.map( 
 				function(Exercises) {
 				if (Exercises.id < 10) {
-					exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}> 
+					exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
 					Exercise {Exercises.id}: {Exercises.question_name} </a> - {Exercises.question_description}</p>;
 					return exerciseList;
 				}	
@@ -40,7 +40,7 @@ var ExercisesList = createReactClass ({
 			var functions = this.state.data.map(
 				function(Exercises) {
 					if (Exercises.id >= 10 && Exercises.id < 20) {
-						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}> 
+						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
 						Exercise {Exercises.id}: {Exercises.question_name} </a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
@@ -49,7 +49,7 @@ var ExercisesList = createReactClass ({
 			var object = this.state.data.map(
 				function(Exercises) {
 					if (Exercises.id >= 20 && Exercises.id < 30) {
-						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}> 
+						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
 						Exercise {Exercises.id}: {Exercises.question_name}</a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
@@ -58,7 +58,7 @@ var ExercisesList = createReactClass ({
 			var dataStructures = this.state.data.map(
 				function(Exercises) {
 					if (Exercises.id >= 30) {
-						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}> 
+						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
 						Exercise {Exercises.id}: {Exercises.question_name}</a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
@@ -91,5 +91,4 @@ var ExercisesList = createReactClass ({
 
 
 ReactDOM.render(<ExercisesList url = '/exercises_database/'/>, document.getElementById('container'))
-
 

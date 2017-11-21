@@ -11338,7 +11338,7 @@ var ExercisesList = createReactClass({
 						{ key: Exercises.id },
 						React.createElement(
 							'a',
-							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
 							'Exercise ',
 							Exercises.id,
 							': ',
@@ -11359,7 +11359,7 @@ var ExercisesList = createReactClass({
 						{ key: Exercises.id },
 						React.createElement(
 							'a',
-							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
 							'Exercise ',
 							Exercises.id,
 							': ',
@@ -11380,7 +11380,7 @@ var ExercisesList = createReactClass({
 						{ key: Exercises.id },
 						React.createElement(
 							'a',
-							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
 							'Exercise ',
 							Exercises.id,
 							': ',
@@ -11400,7 +11400,7 @@ var ExercisesList = createReactClass({
 						{ key: Exercises.id },
 						React.createElement(
 							'a',
-							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
 							'Exercise ',
 							Exercises.id,
 							': ',

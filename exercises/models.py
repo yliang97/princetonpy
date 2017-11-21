@@ -1,5 +1,6 @@
 # Create your models here.
 from django.db import models
+from django.utils.text import slugify
 
 class Exercise(models.Model):
 	question_name = models.CharField(max_length = 200)
@@ -9,6 +10,7 @@ class Exercise(models.Model):
 	test_outputs = models.CharField(max_length = 200)
 	java_equivalent = models.TextField()
 	answer_code = models.TextField()
+	slug = models.SlugField(unique=True)
 
 	def __str__(self):
 		return self.question_name
