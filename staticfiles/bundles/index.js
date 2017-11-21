@@ -11330,18 +11330,15 @@ var ExercisesList = createReactClass({
 
 	render: function () {
 		if (this.state.data) {
-			console.log('DATA!');
-			var beginnerExercises = this.state.data.map(function (Exercises) {
-				if (Exercises.id < 10) {
+
+			var elements = this.state.data.map(function (Exercises) {
+				if (Exercises.category == 'Elements') {
 					exerciseList = React.createElement(
 						'p',
 						{ key: Exercises.id },
 						React.createElement(
 							'a',
-							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
-							'Exercise ',
-							Exercises.id,
-							': ',
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
 							Exercises.question_name,
 							' '
 						),
@@ -11352,17 +11349,14 @@ var ExercisesList = createReactClass({
 				}
 			});
 
-			var intermediateExercises = this.state.data.map(function (Exercises) {
-				if (Exercises.id >= 10 && Exercises.id < 20) {
+			var functions = this.state.data.map(function (Exercises) {
+				if (Exercises.category == 'Functions') {
 					exerciseList = React.createElement(
 						'p',
 						{ key: Exercises.id },
 						React.createElement(
 							'a',
-							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
-							'Exercise ',
-							Exercises.id,
-							': ',
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
 							Exercises.question_name,
 							' '
 						),
@@ -11373,17 +11367,31 @@ var ExercisesList = createReactClass({
 				}
 			});
 
-			var advancedExercises = this.state.data.map(function (Exercises) {
-				if (Exercises.id >= 20) {
+			var object = this.state.data.map(function (Exercises) {
+				if (Exercises.category == 'OOP') {
 					exerciseList = React.createElement(
 						'p',
 						{ key: Exercises.id },
 						React.createElement(
 							'a',
-							{ id: 'specific_exercise', href: '../exercises/' + Exercises.id },
-							'Exercise ',
-							Exercises.id,
-							': ',
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
+							Exercises.question_name
+						),
+						' - ',
+						Exercises.question_description
+					);
+					return exerciseList;
+				}
+			});
+
+			var dataStructures = this.state.data.map(function (Exercises) {
+				if (Exercises.category == 'data') {
+					exerciseList = React.createElement(
+						'p',
+						{ key: Exercises.id },
+						React.createElement(
+							'a',
+							{ id: 'specific_exercise', href: '../exercises/' + Exercises.slug },
 							Exercises.question_name
 						),
 						' - ',
@@ -11400,39 +11408,49 @@ var ExercisesList = createReactClass({
 			React.createElement(
 				'h2',
 				null,
-				' Beginner Exercises '
+				' Elements of Python '
 			),
 			React.createElement(
 				'h4',
 				null,
-				beginnerExercises
+				elements
 			),
 			React.createElement(
 				'h2',
 				null,
-				' Intermediate Exercises '
+				' Functions in Python '
 			),
 			React.createElement(
 				'h4',
 				null,
-				intermediateExercises
+				functions
 			),
 			React.createElement(
 				'h2',
 				null,
-				' Advanced Exercises '
+				' Object Oriented Programming '
 			),
 			React.createElement(
 				'h4',
 				null,
-				advancedExercises
+				object
+			),
+			React.createElement(
+				'h2',
+				null,
+				' Python Data Structures '
+			),
+			React.createElement(
+				'h4',
+				null,
+				dataStructures
 			)
 		);
 	}
 
 });
 
-ReactDOM.render(React.createElement(ExercisesList, { url: '/exercises_database/', pollInterval: 1000 }), document.getElementById('container'));
+ReactDOM.render(React.createElement(ExercisesList, { url: '/exercises_database/' }), document.getElementById('container'));
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ }),

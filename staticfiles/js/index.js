@@ -27,30 +27,39 @@ var ExercisesList = createReactClass ({
 
 	render: function() {
 		if (this.state.data) {
-			console.log('DATA!');
-			var beginnerExercises = this.state.data.map( 
+
+			var elements = this.state.data.map( 
 				function(Exercises) {
-				if (Exercises.id < 10) {
-					exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}> 
-					Exercise {Exercises.id}: {Exercises.question_name} </a> - {Exercises.question_description}</p>;
+				if (Exercises.category == 'Elements') {
+					exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
+					{Exercises.question_name} </a> - {Exercises.question_description}</p>;
 					return exerciseList;
 				}	
 			})			
 
-			var intermediateExercises = this.state.data.map(
+			var functions = this.state.data.map(
 				function(Exercises) {
-					if (Exercises.id >= 10 && Exercises.id < 20) {
-						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}> 
-						Exercise {Exercises.id}: {Exercises.question_name} </a> - {Exercises.question_description}</p>;
+					if (Exercises.category == 'Functions') {
+						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
+						{Exercises.question_name} </a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
 				})
 
-			var advancedExercises = this.state.data.map(
+			var object = this.state.data.map(
 				function(Exercises) {
-					if (Exercises.id >= 20) {
-						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.id}> 
-						Exercise {Exercises.id}: {Exercises.question_name}</a> - {Exercises.question_description}</p>;
+					if (Exercises.category == 'OOP') {
+						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
+						{Exercises.question_name}</a> - {Exercises.question_description}</p>;
+						return exerciseList;
+					}
+				})
+
+			var dataStructures = this.state.data.map(
+				function(Exercises) {
+					if (Exercises.category == 'data') {
+						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
+						{Exercises.question_name}</a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
 				})
@@ -58,17 +67,21 @@ var ExercisesList = createReactClass ({
 
 		return (
 			<div>
-				<h2> Beginner </h2>
+				<h2> Elements of Python </h2>
 				<h4>
-	            	{beginnerExercises}
+	            	{elements}
 	            </h4>
-	            <h2> Intermediate </h2>
+	            <h2> Functions in Python </h2>
 				<h4>
-	            	{intermediateExercises}
+	            	{functions}
 	            </h4>
-	            <h2> Advanced </h2>
+	            <h2> Object Oriented Programming </h2>
 				<h4>
-	            	{advancedExercises}
+	            	{object}
+	            </h4>
+	            <h2> Python Data Structures </h2>
+	            <h4>
+	            	{dataStructures}
 	            </h4>
             </div>
 		)
@@ -76,4 +89,6 @@ var ExercisesList = createReactClass ({
 
 })
 
-ReactDOM.render(<ExercisesList url = '/exercises_database/' pollInterval={1000}/>, document.getElementById('container'))
+
+ReactDOM.render(<ExercisesList url = '/exercises_database/'/>, document.getElementById('container'))
+
