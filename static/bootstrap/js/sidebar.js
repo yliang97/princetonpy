@@ -27,3 +27,4 @@ function toggleAnswer() {
 	$('#answer_button').disable(false);
 }
 
+// random stuff
