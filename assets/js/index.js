@@ -27,39 +27,39 @@ var ExercisesList = createReactClass ({
 
 	render: function() {
 		if (this.state.data) {
-			console.log('DATA!');
+
 			var elements = this.state.data.map( 
 				function(Exercises) {
-				if (Exercises.id < 10) {
+				if (Exercises.category == 'Elements') {
 					exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
-					Exercise {Exercises.id}: {Exercises.question_name} </a> - {Exercises.question_description}</p>;
+					{Exercises.question_name} </a> - {Exercises.question_description}</p>;
 					return exerciseList;
 				}	
 			})			
 
 			var functions = this.state.data.map(
 				function(Exercises) {
-					if (Exercises.id >= 10 && Exercises.id < 20) {
+					if (Exercises.category == 'Functions') {
 						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
-						Exercise {Exercises.id}: {Exercises.question_name} </a> - {Exercises.question_description}</p>;
+						{Exercises.question_name} </a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
 				})
 
 			var object = this.state.data.map(
 				function(Exercises) {
-					if (Exercises.id >= 20 && Exercises.id < 30) {
+					if (Exercises.category == 'OOP') {
 						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
-						Exercise {Exercises.id}: {Exercises.question_name}</a> - {Exercises.question_description}</p>;
+						{Exercises.question_name}</a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
 				})
 
 			var dataStructures = this.state.data.map(
 				function(Exercises) {
-					if (Exercises.id >= 30) {
+					if (Exercises.category == 'data') {
 						exerciseList = <p key = {Exercises.id} ><a id="specific_exercise" href= {'../exercises/' + Exercises.slug}> 
-						Exercise {Exercises.id}: {Exercises.question_name}</a> - {Exercises.question_description}</p>;
+						{Exercises.question_name}</a> - {Exercises.question_description}</p>;
 						return exerciseList;
 					}
 				})

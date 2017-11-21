@@ -5,6 +5,7 @@ from django.utils.text import slugify
 class Exercise(models.Model):
 	question_name = models.CharField(max_length = 200)
 	question_description = models.TextField()
+	category = models.CharField(max_length = 200)
 	question_guidelines = models.TextField() # longer version
 	test_inputs = models.CharField(max_length = 200)
 	test_outputs = models.CharField(max_length = 200)
