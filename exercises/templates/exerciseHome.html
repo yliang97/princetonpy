@@ -17,7 +17,7 @@
     <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Sidebar styles -->
-    <link rel="stylesheet" href="../../static/bootstrap/css/sidebar-persistent.css">
+    <link rel="stylesheet" href="../../static/bootstrap/css/sidebar.css">
 
   </head>
 
@@ -31,7 +31,6 @@
                 </div>
 
                 <ul class="list-unstyled components">
-                    <li><h3><a href="../../exercises/"> Exercise Home</a></h3></li>
                     <li>
                         <a href="#Elements" data-toggle="collapse" aria-expanded="false">Elements of Python</a>
                         <ul class="collapse list-unstyled" id="Elements">
@@ -71,23 +70,33 @@
                 </ul>
             </nav>
 
+
             <!-- Page Content Holder -->
             <div id="content">
-              <div class="container-fluid">
-	              <div class="jumbotron">
-		            <h1>Exercises</h1>
-		            <p>Exercises are ordered by category. It is recommended that you start with Elements, then Functions, then Object Oriented Programming, and Python Data Structures. </p>
-	          	 </div>
+                <nav class="navbar navbar-default">
+                    <div class="container">
 
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="navbar-btn">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
 
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="../../exercises">Exercise Home</a></li>
+                                <li><a href="../../information">Information</a></li>
+                                <li><a href="../../about">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
                 <div id="container"> </div>
                 {% render_bundle 'index' %}
-
-
-              </div> <!-- container -->
+            <div class="line"></div>
             </div>
-
-
         </div> <!--for the wrapper-->
 
       <hr>
@@ -101,8 +110,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../static/bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
     <!-- Specific template JS -->
     <script src="../../static/bootstrap/js/sidebar.js"></script>
+    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
