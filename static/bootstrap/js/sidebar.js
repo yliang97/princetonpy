@@ -22,4 +22,4 @@ function toggleButton(number, max) {
 	else
 		$('#hint_button' + (number + 1)).disable(false);
 }
-
+//

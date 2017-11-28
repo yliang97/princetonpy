@@ -17,12 +17,9 @@ $('#hint_button1').disable(false);
 
 function toggleButton(number, max) {
 	if (number == max) {
-		$('#java_button').disable(false);
+		$('#answer_button').disable(false);
 	}
 	else
 		$('#hint_button' + (number + 1)).disable(false);
 }
 
-function toggleAnswer() {
-	$('#answer_button').disable(false);
-}
