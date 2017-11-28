@@ -19,8 +19,18 @@ class Info(generic.ListView):
 	def get_queryset(self):
 		return
 
+class ExerciseHome(generic.ListView):
+	queryset = Exercise.objects.all()
+	template_name = "exerciseHome.html"
+
 class QuestionView(generic.DetailView):
 	model = Exercise
+
+	def get_context_data(self, **kwargs):
+		context = super(QuestionView, self).get_context_data(**kwargs)
+		context['exercise_list'] = Exercise.objects.all()
+		return context
+
 	template_name = 'specificQuestion.html'
 
 class ExerciseList(generics.ListCreateAPIView):

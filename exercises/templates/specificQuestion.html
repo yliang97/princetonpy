@@ -16,6 +16,9 @@
 
     <!-- Sidebar styles -->
     <link rel="stylesheet" href="../../static/bootstrap/css/sidebar.css">
+    <!-- Code Highlighting -->
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 
   </head>
 
@@ -32,33 +35,41 @@
                     <li>
                         <a href="#Elements" data-toggle="collapse" aria-expanded="false">Elements of Python</a>
                         <ul class="collapse list-unstyled" id="Elements">
-                            <li><a href="../hello-world">Hello World</a></li>
-                            <li><a href="../add-two-numbers">Add Two Numbers</a></li>
-                            <li><a href="#">Home 3</a></li>
+                            {% for e in exercise_list %}
+                                {% if e.category == 'Elements' %}
+                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <a href="#Functions" data-toggle="collapse" aria-expanded="false">Functions in Python</a>
                         <ul class="collapse list-unstyled" id="Functions">
-                            <li><a href="../harmonic">Harmonic</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                            {% for e in exercise_list %}
+                                {% if e.category == 'Functions' %}
+                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <a href="#OOP" data-toggle="collapse" aria-expanded="false">Object Oriented Programming</a>
                         <ul class="collapse list-unstyled" id="OOP">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                            {% for e in exercise_list %}
+                                {% if e.category == 'OOP' %}
+                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <a href="#Data" data-toggle="collapse" aria-expanded="false">Python Data Structures</a>
                         <ul class="collapse list-unstyled" id="Data">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                            {% for e in exercise_list %}
+                                {% if e.category == 'Data' %}
+                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                 </ul>
@@ -95,39 +106,35 @@
                 <div class="line"></div>
 
                 <h3> Task </h3>
-                <p>{{exercise.question_guidelines}}</p>
-                <p>Sample Inputs: <kbd> {{exercise.test_inputs}}</kbd></p>
+                <pre>{{exercise.question_guidelines}}</pre>
+                <p>Sample Inputs <pre>{{exercise.test_inputs}}</pre></p>
 
                 <div class="line"></div>
 
                 <!-- <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/languages/python3"></iframe> -->
                 <iframe src="https://trinket.io/embed/python/212aa6eda2" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-                <div class="line"></div>
+                <h3>Java Equivalent</h3>
+                <button href="#java_equivalent" id = "java_button" class="mt-2 btn btn-default" data-toggle="collapse">Java Code</button>
+                          <div id="java_equivalent" class="mt-2 collapse"> <pre><code class="Java">{{exercise.java_equivalent}}</code></pre></div>  
 
-                <h3>Sample Outputs</h3>
-                <samp>{{exercise.test_outputs}}</samp>
+                <p>Sample Outputs</p>
+                <pre>{{exercise.test_outputs}}</pre>
 
                 <div class="line"></div>
 
                 <h3>Hints</h3>
-
                 {% for i in exercise.hints.all %}
                     <button href="#Hint{{i.number}}" id = "hint_button{{i.number}}" class="mt-2 btn btn-default" data-toggle="collapse" disabled="disabled" onclick="toggleButton({{i.number}}, {{exercise.hints.count}})">Hint {{i.number}}</button>
-                        <div class = "mt-2 panel panel-default">
-                        <div id="Hint{{i.number}}" class="mt-2 collapse"> <p> {{i.hint}} </p></div>  
-                        </div>
-                <div class="line"></div>
+
+                        <div id="Hint{{i.number}}" class="mt-2 collapse"> <pre>{{i.hint}}</pre></div>  
+
                 {% endfor %}
-
-                <h3>Java Equivalent </h3>
-                <button href="#java_equivalent" id = "java_button" class="mt-2 btn btn-default" data-toggle="collapse" disabled="disabled" onclick="toggleAnswer()">Java Answer Code</button>
-                          <div id="java_equivalent" class="mt-2 collapse"> <pre><code> {{exercise.java_equivalent}}</code></pre></div>  
                 <div class="line"></div>
 
-                <h3>Answer Code</h3>
+                <h3>Python Code</h3>
                 <button href="#answer_code" id = "answer_button" class="mt-2 btn btn-default" data-toggle="collapse" disabled="disabled">Python Answer Code</button>
-                          <div id="answer_code" class="mt-2 collapse"><pre><code> {{exercise.answer_code}}</code></pre></div>  
+                          <div id="answer_code" class="mt-2 collapse"><pre><code class="python3">{{exercise.answer_code}}</code></pre></div>  
             </div>
 
         </div>
@@ -143,5 +150,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <!-- Code Highlighting -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

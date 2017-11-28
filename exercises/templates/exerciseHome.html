@@ -34,33 +34,41 @@
                     <li>
                         <a href="#Elements" data-toggle="collapse" aria-expanded="false">Elements of Python</a>
                         <ul class="collapse list-unstyled" id="Elements">
-                            <li><a href="../hello-world">Hello World</a></li>
-                            <li><a href="../add-two-numbers">Add Two Numbers</a></li>
-                            <li><a href="#">Home 3</a></li>
+                            {% for e in object_list %}
+                                {% if e.category == 'Elements' %}
+                                    <li><a href="../exercises/{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <a href="#Functions" data-toggle="collapse" aria-expanded="false">Functions in Python</a>
                         <ul class="collapse list-unstyled" id="Functions">
-                            <li><a href="../harmonic">Harmonic</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                            {% for e in exercise_list %}
+                                {% if e.category == 'Functions' %}
+                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <a href="#OOP" data-toggle="collapse" aria-expanded="false">Object Oriented Programming</a>
                         <ul class="collapse list-unstyled" id="OOP">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                            {% for e in exercise_list %}
+                                {% if e.category == 'OOP' %}
+                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <a href="#Data" data-toggle="collapse" aria-expanded="false">Python Data Structures</a>
                         <ul class="collapse list-unstyled" id="Data">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                            {% for e in exercise_list %}
+                                {% if e.category == 'Data' %}
+                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </li>
                 </ul>

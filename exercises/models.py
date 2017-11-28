@@ -7,8 +7,8 @@ class Exercise(models.Model):
 	question_description = models.TextField()
 	category = models.CharField(max_length = 200)
 	question_guidelines = models.TextField() # longer version
-	test_inputs = models.CharField(max_length = 200)
-	test_outputs = models.CharField(max_length = 200)
+	test_inputs = models.TextField()
+	test_outputs = models.TextField()
 	java_equivalent = models.TextField()
 	answer_code = models.TextField()
 	slug = models.SlugField(unique=True)
