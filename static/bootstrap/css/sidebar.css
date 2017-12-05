@@ -14,7 +14,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #000000;
+    color: #000;
 }
 
 a, a:hover, a:focus {
@@ -223,4 +223,4 @@ a.article, a.article:hover {
         transform: rotate(-45deg) translate(1px, -1px);
     }
 
-}
+} 
