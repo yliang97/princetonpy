@@ -6,6 +6,7 @@ class Exercise(models.Model):
 	question_name = models.CharField(max_length = 200)
 	question_description = models.TextField()
 	category = models.CharField(max_length = 200)
+	lesson = models.TextField() # main ideas for the lesson
 	question_guidelines = models.TextField() # longer version
 	test_inputs = models.TextField()
 	test_outputs = models.TextField()

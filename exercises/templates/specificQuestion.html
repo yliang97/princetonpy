@@ -66,7 +66,7 @@
                         <a href="#Data" data-toggle="collapse" aria-expanded="false">Python Data Structures</a>
                         <ul class="collapse list-unstyled" id="Data">
                             {% for e in exercise_list %}
-                                {% if e.category == 'Data' %}
+                                {% if e.category == 'data' %}
                                     <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
                                 {% endif %}
                             {% endfor %}
@@ -105,9 +105,13 @@
                 <h1>{{exercise.question_name}}</h1>
                 <div class="line"></div>
 
+                <h3> Lesson </h3>
+                <pre>{{exercise.lesson}}</pre>
+
                 <h3> Task </h3>
                 <pre>{{exercise.question_guidelines}}</pre>
-                <p>Sample Inputs <pre>{{exercise.test_inputs}}</pre></p>
+                <h3>Sample Inputs</h3>
+                <pre>{{exercise.test_inputs}}</pre>
 
                 <div class="line"></div>
 
@@ -118,7 +122,7 @@
                 <button href="#java_equivalent" id = "java_button" class="mt-2 btn btn-default" data-toggle="collapse">Java Code</button>
                           <div id="java_equivalent" class="mt-2 collapse"> <pre><code class="Java">{{exercise.java_equivalent}}</code></pre></div>  
 
-                <p>Sample Outputs</p>
+                <h3>Sample Outputs</h3>
                 <pre>{{exercise.test_outputs}}</pre>
 
                 <div class="line"></div>

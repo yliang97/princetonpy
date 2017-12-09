@@ -46,7 +46,7 @@
                         <ul class="collapse list-unstyled" id="Functions">
                             {% for e in exercise_list %}
                                 {% if e.category == 'Functions' %}
-                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                    <li><a href="../exercises/{{e.slug}}">{{e.question_name}}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
@@ -56,7 +56,7 @@
                         <ul class="collapse list-unstyled" id="OOP">
                             {% for e in exercise_list %}
                                 {% if e.category == 'OOP' %}
-                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                    <li><a href="../exercises/{{e.slug}}">{{e.question_name}}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
@@ -65,8 +65,8 @@
                         <a href="#Data" data-toggle="collapse" aria-expanded="false">Python Data Structures</a>
                         <ul class="collapse list-unstyled" id="Data">
                             {% for e in exercise_list %}
-                                {% if e.category == 'Data' %}
-                                    <li><a href="../{{e.slug}}">{{e.question_name}}</a></li>
+                                {% if e.category == 'data' %}
+                                    <li><a href="../exercises/{{e.slug}}">{{e.question_name}}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
