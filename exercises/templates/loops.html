@@ -1,0 +1,401 @@
+
+<HTML>
+<HEAD>
+<link rel="stylesheet" type="text/css" href="../../static/bootstrap/css/seasonal.css">
+<TITLE>COS 126 Python Assignment: Conditionals and Loops</TITLE></HEAD>
+
+<script type="text/python3script" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<BODY BGCOLOR = #FFFFFF>
+<TABLE WIDTH="100%" BORDER="0">
+<TR ALIGN="LEFT" VALIGN="BOTTOM">
+<TD><STRONG>COS 126 - Python</STRONG><BR><BR>
+<STRONG><FONT SIZE="+2">Conditionals, Loops<span class='spring-only'>, Arrays<span></FONT></STRONG></TD>
+<TD ALIGN="RIGHT" VALIGN="BOTTOM">
+<STRONG>Programming Assignment</STRONG><BR><BR>
+<BR>
+</TD></TR></TABLE>
+<hr>
+<P>
+
+
+<div class='spring-only'>
+The goal of this assignment is to write four short Python programs
+to gain practice with loops, conditionals, and arrays. Download everything you need off the <a href="https://introcs.cs.princeton.edu/python/home/"> COS 126 Python website </a>.
+</div>
+<div class='fall-only'>
+The goal of this assignment is to write five short python3 programs
+to gain practice with loops and conditionals.
+</div>
+
+
+<ol>
+
+<li class='spring-only'><b>Bits</b>
+Write a program <tt>Bits.py</tt>
+that takes an integer command-line argument <tt>n</tt> and uses 
+a <tt>while</tt> loop to compute the number of times
+you need to divide <tt>n</tt> by 2 until it is strictly less than 1.
+Print the error message "<tt>Illegal input</tt>" if <tt>n</tt> is negative.
+
+
+<blockquote>
+<table>
+<TR><TD><pre>
+% <b>python3 Bits.py 0</b>                     % <b>python3 Bits.py 8</b>
+0                                 4
+
+% <b>python3 Bits.py 1</b>                     % <b>python3 Bits.py 16</b>
+1                                 5
+
+% <b>python3 Bits.py 2</b>                     %<b> python3 Bits.py 1000</b>
+2                                 10
+
+% <b>python3 Bits.py 4</b>                     %<b> python3 Bits.py -23</b>
+3                                 Illegal input
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p>
+<em>This computes the number of bits.py in the binary 
+representation of <em>n</em>, which also equals 1 + floor(log<sub>2</sub> <em>n</em>)
+when <em>n</em> is positive.
+This quantity arises in information theory and the analysis of algorithms.</em>
+
+<li class='fall-only'><b>Boolean and integer variables.</b>
+Write a program <tt>Ordered.py</tt> 
+that takes three integer command-line arguments, 
+<em>x</em>, <em>y</em>, and <em>z</em>.
+<!-- (You may assume that exactly three 
+integers will be entered when the program is run.)
+-->
+Define a <tt>boolean</tt> variable whose
+value is <tt>true</tt> if the three values are either in
+strictly ascending order  (<em>x &lt; y &lt; z</em>) or
+in strictly descending order (<em>x &gt; y &gt; z</em>),
+and <tt>false</tt> otherwise.
+<blockquote><pre>
+% <b>python3 Ordered.py 10 17 49</b>
+true
+
+% <b>python3 Ordered.py 49 17 10</b>
+true
+
+% <b>python3 Ordered.py 10 49 17</b>
+false
+</pre></blockquote>
+
+Do <em>not</em> use a conditional or loop
+(such as an <tt>if</tt>, <tt>while</tt>, or <tt>for</tt> statement) on this question.
+
+<p>
+<li class='fall-only'> <b>Type conversion and conditionals.</b> &nbsp;
+Several different formats are used to represent color. For 
+example, the primary format for LCD displays, digital cameras, and web pages&mdash;known
+as the <em>RGB format</em>&mdash;specifies the level of red (R), green (G), and blue (B) 
+on an integer scale from 0 to 255. The primary format for publishing books and 
+magazines&mdash;known as the <em>CMYK format</em>&mdash;specifies the level of cyan (C), magenta 
+(M), yellow (Y), and black (K) on a real scale from 0.0 to 1.0. 
+
+<p>
+Write a program
+<tt>RGBtoCMYK.py</tt> that converts from RGB format to CMYK format. 
+Your program should take three integer command-line arugments
+<tt>red</tt>, <tt>green</tt>, and <tt>blue</tt>;
+print the RGB values; then print
+the equivalent CMYK values using these mathematical formulas: 
+
+
+<blockquote>
+\(
+\begin{align*}
+
+white \;&=\; \max \left \{ \, \frac{red}{255}, \, \frac{green}{255}, \, \frac{blue}{255} \, \right \} \\
+
+cyan \;&=\; \Bigl(white - \frac{red}{255} \Bigr) \; \div \; white \\
+
+magenta \;&=\; \Bigl(white-\frac{green}{255}\Bigr) \; \div \; white \\
+
+yellow \;&=\; \Bigl(white-\frac{blue}{255}\Bigr) \; \div \; white \\
+
+black \;&=\; 1 - white
+
+\end{align*}
+\)
+</blockquote>
+
+<!--
+<blockquote>
+<img src = "loops-files/rgb2cmyk.png" alt = "RGB to CMYK formula">
+</blockquote>
+-->
+
+<p><em>Hint.py</em> <tt>Math.max(x, y)</tt> returns the maximum of <tt>x</tt> and <tt>y</tt>.
+<p>
+<table>
+<tr>
+<td>
+<blockquote><pre>
+% <b>python3 RGBtoCMYK.py 75 0 130</b>    <font color = gray>// indigo</font>
+red     = 75
+green   = 0
+blue    = 130
+cyan    = 0.423076923076923
+magenta = 1.0
+yellow  = 0.0
+black   = 0.4901960784313726
+</pre></blockquote>
+</td>
+<td>
+<blockquote><pre>
+% <b>python3 RGBtoCMYK.py 255 143 0</b>   <font color = gray>// Princeton orange</font>
+red     = 255
+green   = 143
+blue    = 0
+cyan    = 0.0
+magenta = 0.4392156862745098
+yellow  = 1.0
+black   = 0.0
+</pre></blockquote>
+</td>
+</pre></blockquote>
+</table>
+
+<p>
+If the red, green, and blue values are each 0, the resulting
+color is black. Here is what your program should do: 
+
+<blockquote><pre>
+% <b>python3 RGBtoCMYK.py 0 0 0</b>       <font color = gray>// black</font>
+red     = 0
+green   = 0
+blue    = 0
+cyan    = 0.0
+magenta = 0.0
+yellow  = 0.0
+black   = 1.0
+</pre></blockquote>
+
+
+<li class='spring-only'>
+<b>Noon snooze.</b>
+Write a program <tt>NoonSnooze.py</tt> that takes an integer command-line
+argument <tt>snooze</tt> and prints the time of day (using a 12-hour clock)
+that is <tt>snooze</tt> minutes after 12:00pm (noon).
+
+<blockquote><pre>
+% <b>python3 NoonSnooze.py 50</b>
+12:50pm
+
+% <b>python3 NoonSnooze.py 100</b>
+1:40pm
+
+% <b>python3 NoonSnooze.py 720</b>
+12:00am
+
+% <b>python3 NoonSnooze.py 11111</b>
+5:11am
+</pre></blockquote>
+
+<p><em>Note</em>: you may assume that <tt>snooze</tt> is a non-negative integer.
+
+<p><em>Hint</em>: use the integer division and remainder operators.
+
+<p>
+<li class='fall-only'>
+<b>Checkerboard.py</b>
+Write a program <tt>Checkerboard.python3</tt> that takes an integer command-line argument
+<em>n</em>, and uses a nested <tt>for</tt> loop to print
+an <em>n</em>-by-<em>n</em> checkerboard pattern like the one below:
+a total of <em>n</em><sup>2</sup> asterisks, where each row
+has 2<em>n</em> characters (alternating between asterisks and spaces).
+
+<blockquote>
+<table>
+<TR><TD><pre>
+% <b>python3 Checkerboard.py 4</b>             % <b>python3 Checkerboard.py 5</b>
+* * * *                           * * * * * 
+ * * * *                           * * * * *
+* * * *                           * * * * * 
+ * * * *                           * * * * *
+                                  * * * * * 
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p><li><b>A drone's flight.</b>
+A drone begins flying aimlessly, starting at Nassau Hall.
+At each time step, the drone flies one meter in a random direction, either
+north, east, south, or west, with probability 25%.
+How far will the drone be from Nassau Hall after <em>n</em> steps?
+This process is known as a two-dimensional <em>random walk</em>.
+
+<!--
+<p><br>
+<IMG SRC="loops-files/random-walk.png" align=right hspace=25 alt = "Random walk in the plane"></a>
+<p><li><b>A drunkard's walk.</b>
+A drunkard begins walking aimlessly, starting at a lamp post.
+At each time step, the drunkard forgets
+where he or she is, and takes one step at random, either
+north, east, south, or west, with probability 25%.
+How far will the drunkard be from the lamp post after <em>n</em> steps?
+-->
+
+<ol type = "a">
+<p><li>
+Write a program <tt>RandomWalker.python3</tt> that takes an integer command-line
+argument <tt>n</tt> and simulates the motion of a random walk for <tt>n</tt> steps.
+Print the location at each step (including the starting point),
+treating the starting point as the origin (0, 0).
+Also, print the <em>square</em> of the final Euclidean distance from the origin.
+
+<blockquote><pre>
+<IMG SRC="loops-files/random-walk.png" align=right hspace=25 alt = "Random walk in the plane"></a>
+% <b>python3 RandomWalker.py 10</b>         % <b>python3 RandomWalker.py 20</b>
+(0, 0)                        (0, 0)
+(0, -1)                       (0, 1)
+(0, 0)                        (-1, 1)
+(0, 1)                        (-1, 2)
+(0, 2)                        (0, 2)
+(-1, 2)                       (1, 2)
+(-2, 2)                       (1, 3)
+(-2, 1)                       (0, 3)
+(-1, 1)                       (-1, 3)
+(-2, 1)                       (-2, 3)
+(-3, 1)                       (-3, 3)
+squared distance = 10         (-3, 2)
+                              (-4, 2)
+                              (-4, 1)
+                              (-3, 1)
+                              (-3, 0)
+                              (-4, 0)
+                              (-4, -1)
+                              (-3, -1)
+                              (-3, -2)
+                              (-3, -3)
+                              squared distance = 18
+</pre></blockquote>
+
+<p><li>
+Write a program <tt>RandomWalkers.py</tt> that takes two integer
+command-line arguments <tt>n</tt> and <tt>trials</tt>.
+In each of <tt>trials</tt> independent experiments,
+simulate a random walk of <tt>n</tt> steps and compute the squared distance.
+Output the <em>mean squared distance</em> (the average of the <tt>trials</tt> squared distances).
+
+<blockquote><pre>
+% <b>python3 RandomWalkers.py 100 10000</b>         % <b>python3 RandomWalkers.py 400 2000</b>
+mean squared distance = 101.446         mean squared distance = 383.12
+
+% <b>python3 RandomWalkers.py 100 10000</b>         % <b>python3 RandomWalkers.py 800 5000</b>
+mean squared distance = 99.1674         mean squared distance = 811.8264
+
+% <b>python3 RandomWalkers.py 200 1000</b>         % <b>python3 RandomWalkers.py 1600 100000</b>
+mean squared distance = 195.75          mean squared distance = 1600.13064
+</pre></blockquote>
+
+
+<p>
+As <tt>n</tt> increases, we expect the random walk to end up farther and
+farther away from the origin. But how much farther?
+Use <tt>RandomWalkers.py</tt> to formulate a hypothesis as to how the mean
+squared distance grows as a function of <tt>n</tt>.
+Use <tt>trials</tt> = 100,000 to get a sufficiently accurate estimate.
+
+</ol>
+
+<p><em>This process is a discrete version of a natural phenomenon
+known as Brownian motion. It serves as a scientific model
+for an astonishing range of physical processes from the dispersion of 
+ink flowing in water, to the formation of polymer chains in chemistry,
+to cascades of neurons firing in the brain.
+</em>
+
+<li class='spring-only'><b>Dice and the Gaussian distribution.</b>
+Write a program <tt>RollDice.py</tt> that takes an integer command-line 
+argument <tt>n</tt>, and rolls 10 fair six-sided dice, <tt>n</tt> times.
+Use an integer array to tabulate the number of times each possible total (between 10 and 60)
+occurs.
+Then print a text histogram of the results, as illustrated below.
+
+<blockquote>
+<table>
+<TR><TD><pre>
+% <b>python3 RollDice.py 1000</b>
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: 
+18: *
+19: ****
+20: 
+21: ***
+22: ******
+23: ********
+24: ****************
+25: *************
+26: **********
+27: *********************************
+28: ****************************************
+29: *********************************
+30: ***************************************************
+31: *****************************************************************
+32: ********************************************************
+33: **************************************************************************************
+34: ***********************************************************
+35: *********************************************************************
+36: ***********************************************************************************
+37: **************************************************************
+38: *****************************************************************
+39: ***************************************
+40: *****************************************************
+41: ************************************
+42: ****************************
+43: ************************
+44: ************************
+45: *********
+46: ***********
+47: *******
+48: ***
+49: **
+50: 
+51: 
+52: *
+53: 
+54: 
+55: 
+56: 
+57: 
+58: 
+59: 
+60: 
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p><em>Note</em>: you should assume that <tt>n</tt> is a non-negative integer.
+
+<p><em>The central limit theorem, a key result in
+ probability and statistics,
+asserts that the shape of the
+resulting histogram tends to the ubiquitous
+bell curve (Gaussian distribution) if the number of dice and rolls is large.</em>
+
+
+</ol>
+
+
+
+
+<span class='spring-only'><b>Challenge for the bored.</b>
+Implement <tt>NoonSnooze.py</tt> without using any <tt>if</tt> statements;
+also, handle negative snooze times.
+</span>
+
+</BODY></HTML>
+

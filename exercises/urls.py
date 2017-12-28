@@ -9,5 +9,7 @@ urlpatterns = [
 	url(r'^exercises/$', views.ExerciseHome.as_view(), name='exerciseHome'),
 	url(r'^exercises_database/$', views.ExerciseList.as_view()),
 	url(r'^exercises/(?P<slug>[-\w]+)/$', views.QuestionView.as_view(), name='detail'),
+	url(r'^projects', TemplateView.as_view(template_name="projects.html")),
+	url(r'^project/loops', TemplateView.as_view(template_name="loops.html")),
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
